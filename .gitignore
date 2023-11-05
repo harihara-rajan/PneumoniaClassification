@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 # ignore the data folder -> to avoid pushng data to the remote repo. 
-\src\artifcacts\*
+src/artifacts/*
