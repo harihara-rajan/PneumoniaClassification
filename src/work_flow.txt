@@ -1,0 +1,7 @@
+1. config.yaml 
+2. params.yaml 
+3. update entity 
+4. update configuration inside src/config/congiguration.py
+5. update components
+6. update the pipeline
+7. update the main file
