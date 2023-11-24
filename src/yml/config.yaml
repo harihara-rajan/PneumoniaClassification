@@ -7,3 +7,7 @@ data_ingestion:
   url: https://github.com/entbappy/Branching-tutorial/raw/master/Chicken-fecal-images.zip
   root_dir_zip: artifcacts/data_zip
   root_dir: artifcacts/data
+
+base_model_generator:
+  base_model_path: artifcacts/base_model/base_model.h5
+  actual_model_path: artifcacts/final_model/final_model.h5

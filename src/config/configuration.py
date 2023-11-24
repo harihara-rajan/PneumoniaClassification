@@ -1,5 +1,5 @@
 from constants.__init__ import CONFIG_FILE_PATH, PARAMS_FILE_PATH
-from entity.entity_config import DataIngestionEntity
+from entity.entity_config import DataIngestionEntity, BaseModelGeneratorEntity
 from utils.common import read_yaml, create_dirs
 from pathlib import Path
 class ConfigurationManager:
@@ -14,6 +14,21 @@ class ConfigurationManager:
             root_dir=config.root_dir
         )
         return die
+    def get_base_model_generator_entity(self)-> BaseModelGeneratorEntity:
+        
+        base_model_entity = BaseModelGeneratorEntity(
+            base_model_path  = self.config.base_model_generator.base_model_path,
+            actual_model_path= self.config.base_model_generator.actual_model_path,
+            CLASSES = self.params.CLASSES,
+            EPOCHS = self.params.EPOCHS,
+            BATCH_SIZE = self.params.BATCH_SIZE,
+            LR = self.params.LR,
+            TEST_SIZE = self.params.TEST_SIZE,
+            IMAGE_SIZE = self.params.IMAGE_SIZE
+        )
+        return base_model_entity
+
+
 
 if __name__ == '__main__':
     cm = ConfigurationManager()

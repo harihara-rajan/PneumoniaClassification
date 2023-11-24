@@ -17,8 +17,7 @@ def create_dirs(list_dirs:list[str])-> None:
 
 
 if __name__ == '__main__':
-    configbox = read_yaml(Path("E:\PneumoniaClassification\src\yaml\config.yaml"))
-    test_key = configbox.test_key
-    print(test_key.test_key1)
-    print(test_key.test_key2)
-    print(test_key.test_key3)
+    configbox = read_yaml(Path("E:\PneumoniaClassification\src\yml\config.yaml"))
+    test_key = configbox.base_model_generator
+    print(test_key.base_model_path)
+    print(test_key.actual_model_path)
