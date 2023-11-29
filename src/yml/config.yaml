@@ -5,9 +5,23 @@ test_key:
 
 data_ingestion:
   url: https://github.com/entbappy/Branching-tutorial/raw/master/Chicken-fecal-images.zip
+<<<<<<< HEAD
+  root_dir_zip: artifacts/data_zip
+  root_dir: artifacts/data
+
+base_model_generator:
+  base_model_path: artifacts/base_model/base_model.h5
+  actual_model_path: artifacts/final_model/final_model.h5
+
+prepare_callbacks:
+  root_dir: artifacts/prepare_callbacks
+  tensorboard_log_dir:  artifacts/prepare_callbacks/tensorboard_log_dir
+  checkpoint_file_path: artifacts/prepare_callbacks/checkpoint_dir/model.h5
+=======
   root_dir_zip: artifcacts/data_zip
   root_dir: artifcacts/data
 
 base_model_generator:
   base_model_path: artifcacts/base_model/base_model.h5
   actual_model_path: artifcacts/final_model/final_model.h5
+>>>>>>> 0b716a82367ca3fefaab1c518183842f9ca0a3ac

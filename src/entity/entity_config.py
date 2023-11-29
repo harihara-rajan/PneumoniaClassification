@@ -16,4 +16,14 @@ class BaseModelGeneratorEntity:
     BATCH_SIZE: int
     LR: float
     TEST_SIZE: float
+<<<<<<< HEAD
     IMAGE_SIZE: list
+
+@dataclass(frozen=True)
+class CALLBACKSENTITY:
+    root_dir: Path
+    tensorboard_log_dir: Path
+    checkpoint_file_path: Path 
+=======
+    IMAGE_SIZE: list
+>>>>>>> 0b716a82367ca3fefaab1c518183842f9ca0a3ac

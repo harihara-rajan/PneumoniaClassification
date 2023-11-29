@@ -1,5 +1,12 @@
 from constants.__init__ import CONFIG_FILE_PATH, PARAMS_FILE_PATH
+<<<<<<< HEAD
+from entity.entity_config import (
+                                    DataIngestionEntity, 
+                                    BaseModelGeneratorEntity, 
+                                    CALLBACKSENTITY)
+=======
 from entity.entity_config import DataIngestionEntity, BaseModelGeneratorEntity
+>>>>>>> 0b716a82367ca3fefaab1c518183842f9ca0a3ac
 from utils.common import read_yaml, create_dirs
 from pathlib import Path
 class ConfigurationManager:
@@ -27,7 +34,19 @@ class ConfigurationManager:
             IMAGE_SIZE = self.params.IMAGE_SIZE
         )
         return base_model_entity
+<<<<<<< HEAD
+    
+    def get_callbacks_entity(self)->CALLBACKSENTITY :
+        config = self.config.prepare_callbacks
+        
+        callback_entity = CALLBACKSENTITY(root_dir=config.root_dir, 
+                                          tensorboard_log_dir=config.tensorboard_log_dir,
+                                          checkpoint_file_path=config.checkpoint_file_path
+                                          )
+        return callback_entity
+=======
 
+>>>>>>> 0b716a82367ca3fefaab1c518183842f9ca0a3ac
 
 
 if __name__ == '__main__':
