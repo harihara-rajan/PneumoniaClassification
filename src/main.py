@@ -1,7 +1,6 @@
 from config.configuration import ConfigurationManager
 from components.stage_01_data_ingestion import DataIngestionComponent
 from components.stage_02_base_model_generator import BaseModelGeneratorComponent
-<<<<<<< HEAD
 from components.stage_03_callbacks import CALLBACKSCOMPONENT
 from constants.__init__ import CONFIG_FILE_PATH, CONFIG_FILE_PATH
 from pipeline.stage_01_data_ingestion_pipeline import DataIngestionPipeline
@@ -11,14 +10,13 @@ from pipeline.stage_03_callbacks_pipeline import CallBacksPipeline
 stage01= "Data Ingestion"
 stage02 = "Base Model Generator"
 stage03 = "Creating Callbacks"
-=======
+
 from constants.__init__ import CONFIG_FILE_PATH, CONFIG_FILE_PATH
 from pipeline.stage_02_base_model_gen_pipeline import BaseModelPipeline
 # import os
 stage01= "Data Ingestion"
 stage02 = "Base Model Generator"
 
->>>>>>> 0b716a82367ca3fefaab1c518183842f9ca0a3ac
 try:
     print(f"Stage 01 {stage01} stared")
     cm = ConfigurationManager()
@@ -26,11 +24,8 @@ try:
     DataIngestionComponent = DataIngestionComponent(die)
     DataIngestionComponent.download_data()
     DataIngestionComponent.extract_data()
-<<<<<<< HEAD
     # di = DataIngestionPipeline
     # di.main()
-=======
->>>>>>> 0b716a82367ca3fefaab1c518183842f9ca0a3ac
     print(f"Stage 01 {stage01} ended")
 except Exception as e:
     raise e
@@ -41,7 +36,6 @@ try:
     model_gen.main()
     print(f"Stage 02 {stage02} ended")
 except Exception as e:
-<<<<<<< HEAD
     raise e
 
 try:
@@ -50,6 +44,4 @@ try:
     callbacks.main()
     print(f"Stage 03 {stage03} started")
 except Exception as e:
-=======
->>>>>>> 0b716a82367ca3fefaab1c518183842f9ca0a3ac
     raise e
