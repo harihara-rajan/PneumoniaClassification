@@ -5,11 +5,12 @@ from components.stage_03_callbacks import CALLBACKSCOMPONENT
 from constants.__init__ import CONFIG_FILE_PATH, CONFIG_FILE_PATH
 from pipeline.stage_01_data_ingestion_pipeline import DataIngestionPipeline
 from pipeline.stage_02_base_model_gen_pipeline import BaseModelPipeline
-from pipeline.stage_03_callbacks_pipeline import CallBacksPipeline
+# from pipeline.stage_03_callbacks_pipeline import CallBacksPipeline
+from pipeline.stage_04_model_training_pipeline import ModelTrainingPipeline
 # import os
 stage01= "Data Ingestion"
 stage02 = "Base Model Generator"
-stage03 = "Creating Callbacks"
+stage03 = "Model Training"
 
 from constants.__init__ import CONFIG_FILE_PATH, CONFIG_FILE_PATH
 from pipeline.stage_02_base_model_gen_pipeline import BaseModelPipeline
@@ -40,8 +41,8 @@ except Exception as e:
 
 try:
     print(f"Stage 03 {stage03} started")
-    callbacks = CallBacksPipeline
+    callbacks = ModelTrainingPipeline
     callbacks.main()
-    print(f"Stage 03 {stage03} started")
+    print(f"Stage 03 {stage03} ended")
 except Exception as e:
     raise e

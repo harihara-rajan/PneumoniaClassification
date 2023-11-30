@@ -2,7 +2,8 @@ from constants.__init__ import CONFIG_FILE_PATH, PARAMS_FILE_PATH
 from entity.entity_config import (
                                     DataIngestionEntity, 
                                     BaseModelGeneratorEntity, 
-                                    CALLBACKSENTITY)
+                                    CALLBACKSENTITY, 
+                                    TrainingEntity)
 from utils.common import read_yaml, create_dirs
 from pathlib import Path
 class ConfigurationManager:
@@ -40,6 +41,17 @@ class ConfigurationManager:
                                           )
         return callback_entity
 
+    def get_training_entity(self)->TrainingEntity:
+        config = self.config.training
+        training_entity = TrainingEntity(root_dir=config.root_dir,
+                                         actual_model_path=self.config.base_model_generator.actual_model_path,
+                                         trained_model_path=config.trained_model_path,
+                                         training_data_path=config.training_data_path,
+                                         params_epochs= self.params.EPOCHS,
+                                         params_batch_size=self.params.BATCH_SIZE,
+                                         params_is_augment=self.params.AUG, 
+                                         params_image_size=self.params.IMAGE_SIZE)
+        return training_entity
 
 if __name__ == '__main__':
     cm = ConfigurationManager()
