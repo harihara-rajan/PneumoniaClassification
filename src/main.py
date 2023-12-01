@@ -7,10 +7,12 @@ from pipeline.stage_01_data_ingestion_pipeline import DataIngestionPipeline
 from pipeline.stage_02_base_model_gen_pipeline import BaseModelPipeline
 # from pipeline.stage_03_callbacks_pipeline import CallBacksPipeline
 from pipeline.stage_04_model_training_pipeline import ModelTrainingPipeline
+from pipeline.stage_05_model_evaluation_pipeline import ModelEvaluationPipeline
 # import os
 stage01= "Data Ingestion"
 stage02 = "Base Model Generator"
 stage03 = "Model Training"
+stage04 = "Model Evaluation"
 
 from constants.__init__ import CONFIG_FILE_PATH, CONFIG_FILE_PATH
 from pipeline.stage_02_base_model_gen_pipeline import BaseModelPipeline
@@ -44,5 +46,12 @@ try:
     callbacks = ModelTrainingPipeline
     callbacks.main()
     print(f"Stage 03 {stage03} ended")
+except Exception as e:
+    raise e
+
+try:
+    print(f"Stage 04 {stage04} started")
+    model_eval = ModelEvaluationPipeline
+    model_eval.main()
 except Exception as e:
     raise e

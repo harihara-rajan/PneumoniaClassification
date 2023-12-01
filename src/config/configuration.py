@@ -3,8 +3,9 @@ from entity.entity_config import (
                                     DataIngestionEntity, 
                                     BaseModelGeneratorEntity, 
                                     CALLBACKSENTITY, 
-                                    TrainingEntity)
-from utils.common import read_yaml, create_dirs
+                                    TrainingEntity, 
+                                    ModelEvaluationEntity)
+from utils.common import read_yaml
 from pathlib import Path
 class ConfigurationManager:
     def __init__(self, config_path=CONFIG_FILE_PATH, params_path=PARAMS_FILE_PATH):
@@ -52,6 +53,15 @@ class ConfigurationManager:
                                          params_is_augment=self.params.AUG, 
                                          params_image_size=self.params.IMAGE_SIZE)
         return training_entity
+
+    def get_model_evaluation_entity(self)->ModelEvaluationEntity:
+        model_evaluation_entity = ModelEvaluationEntity(trained_model_path= self.config.training.trained_model_path,
+            training_data_path= self.config.training.training_data_path,
+            all_params= self.params,
+            params_batch_size= self.params.BATCH_SIZE,
+            params_image_size= self.params.IMAGE_SIZE
+        )
+        return model_evaluation_entity
 
 if __name__ == '__main__':
     cm = ConfigurationManager()
