@@ -34,6 +34,7 @@ class TrainingEntity:
     params_batch_size: int
     params_is_augment: bool
     params_image_size: list
+    model_no: int
 
 @dataclass(frozen=True)
 class ModelEvaluationEntity:
@@ -42,3 +43,4 @@ class ModelEvaluationEntity:
     all_params: dict
     params_batch_size: int
     params_image_size: list
+    model_no: int

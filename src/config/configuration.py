@@ -51,7 +51,8 @@ class ConfigurationManager:
                                          params_epochs= self.params.EPOCHS,
                                          params_batch_size=self.params.BATCH_SIZE,
                                          params_is_augment=self.params.AUG, 
-                                         params_image_size=self.params.IMAGE_SIZE)
+                                         params_image_size=self.params.IMAGE_SIZE,
+                                         model_no=self.params.MODEL)
         return training_entity
 
     def get_model_evaluation_entity(self)->ModelEvaluationEntity:
@@ -59,7 +60,8 @@ class ConfigurationManager:
             training_data_path= self.config.training.training_data_path,
             all_params= self.params,
             params_batch_size= self.params.BATCH_SIZE,
-            params_image_size= self.params.IMAGE_SIZE
+            params_image_size= self.params.IMAGE_SIZE,
+            model_no=self.params.MODEL
         )
         return model_evaluation_entity
 

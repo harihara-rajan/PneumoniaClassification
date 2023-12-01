@@ -2,7 +2,7 @@ import os
 from config.configuration import ModelEvaluationEntity
 import tensorflow as tf
 from pathlib import Path
-from utils.common import save_json
+from utils.common import save_json, create_dirs
 
 class ModelEvaluation:
     def __init__(self, ModelEvaluationEntity):
@@ -27,8 +27,11 @@ class ModelEvaluation:
         return tf.keras.models.load_model(path)
     
     def evaluation(self):
+        trained_model_path = os.path.join(
+            os.path.dirname(self.config.trained_model_path),
+            f"trained_model_{self.config.model_no}.h5")
         # self.model = self._load_model(self.config.trained_model_path)
-        model = tf.keras.models.load_model(self.config.trained_model_path)
+        model = tf.keras.models.load_model(trained_model_path)
         self._valid_generator()
         self.score = model.evaluate(self.valid_data_generator) # list ["loss", "acc"]
     
@@ -37,7 +40,9 @@ class ModelEvaluation:
             loss = self.score[0],
             accuracy = self.score[1]
         )
+        path_to_save_scores = os.path.join(os.path.dirname(self.config.trained_model_path), 'scores')
+        create_dirs([path_to_save_scores])
         save_json(values= scores, 
-                  path=os.path.join(os.path.dirname(self.config.trained_model_path),"training_score.json"))
+                  path=os.path.join(path_to_save_scores,f"training_score_{self.config.model_no}.json"))
         
 
